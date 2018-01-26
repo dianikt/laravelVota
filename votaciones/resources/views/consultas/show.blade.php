@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-   
-    crea todas las consultas que quieras !! 
+      Aqui podria ver las consultas una a una!!
+
 
 @stop

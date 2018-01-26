@@ -11,31 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'HomeController@getHome');
 
 Route::get('login', function () {
-    return view('auth.login');
+     return view('auth.login');
 });
 
 Route::get('logout', function () {
     return view('logout');
 });
 
-Route::get('consultas/creacioConsultes', function () {
-    return view('consultas.creacioConsultes');
-});
-
-Route::get('consultas/form_invitacions', function () {
-    return view('consultas.form_invitacions');
-});
-
-Route::get('votos/profile', function () {
-    return view('votos.profile');
-});
-
-Route::get('votos/listadoConsultas', function () {
-    return view('votos.listadoConsultas');
-});
+Route::resource('consultas', 'ConsultasController');
 
