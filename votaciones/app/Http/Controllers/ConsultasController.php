@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Consultas;
 use Illuminate\Http\Request;
 
 class ConsultasController extends Controller
@@ -13,7 +13,7 @@ class ConsultasController extends Controller
      */
     public function index()
     {
-          return view('consultas.index');
+        return view('consultas.index', array('arrayConsultas'=>Consultas::all() ));
     }
 
     /**
@@ -22,8 +22,9 @@ class ConsultasController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    {
-        return view('consultas.create');
+    {       
+       return view('consultas.create');
+      
     }
 
     /**
@@ -34,7 +35,12 @@ class ConsultasController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $c = new Consultas;
+        if ($request->has('consulta')){    //...  
+            $c->consulta = $request->input('consulta');                 
+            $c->save();
+            {{}};
+        }       
     }
 
     /**

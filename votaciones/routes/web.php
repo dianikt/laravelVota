@@ -11,7 +11,9 @@
 |
 */
 
-Route::get('/', 'HomeController@getHome');
+Route::get('/', function(){
+	return view('home');
+});
 
 Route::get('login', function () {
      return view('auth.login');
@@ -23,3 +25,7 @@ Route::get('logout', function () {
 
 Route::resource('consultas', 'ConsultasController');
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
